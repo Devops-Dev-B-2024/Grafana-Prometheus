@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  cinecritique:
+    build: ./CineCritique
+    restart: always
+    ports:
+      - "3000:3000"
+      - "9100:9100"        
+    networks:
+      - tp3-network
+    environment:
+      DATABASE_URL: mysql://root:root@tp3-mysql/tp3-bdd
+    depends_on:
+      - tp3-mysql
+
+  tp3-mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tp3-bdd
+    networks:
+      - tp3-network
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus:/etc/prometheus
+    ports:
+      - "9090:9090"   
+    depends_on:
+      - cinecritique
+    networks:
+      - tp3-network
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3030:3000"
+    depends_on:
+      - prometheus
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning      
+    networks:
+      - tp3-network
+
+networks:
+  tp3-network:
+    driver: bridge
