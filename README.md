@@ -70,5 +70,17 @@ Une fois connecté, vous serez dirigé vers la page d'accueil de Grafana. Deux o
 
 ![image](https://github.com/Dayql/FormulaireAPI/assets/94311330/24863b84-44db-4a76-8c9b-10d14159191b)
 
+## Explications
+
+Pour permettre à Prometheus de collecter des données du conteneur de l'API CineCritique, j'ai mis en place un serveur de métriques. Ce serveur est défini dans le fichier metrics.js, situé à la racine du dossier CineCritique. Le serveur est accessible via le port 9100 à l'endpoint /metrics.
+
+Pour visualiser les métriques brutes, vous pouvez accéder à l'URL suivante :
+
+```
+http://localhost:9100/metrics
+```
+
+Dans cette démonstration, j'ai intégré uniquement les métriques par défaut récupérables par Prometheus. Cependant, pour une application de ce type, il est également possible de récupérer des métriques spécifiques telles que le nombre de requêtes HTTP reçues ou la durée des requêtes HTTP.
+
 ## Contact
 Pour plus d'informations, contactez lucas.guerra@ynov.com.
