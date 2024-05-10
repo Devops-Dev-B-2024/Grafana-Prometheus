@@ -15,7 +15,7 @@ git clone https://github.com/Devops-Dev-B-2024/Grafana-Prometheus.git
 2. **Accéder au Répertoire du Projet** :
 
 ```
-cd cinecritique
+cd Grafana-Prometheus
 ```
 
 3. **Lancer les Conteneurs Docker** :
@@ -26,7 +26,22 @@ docker-compose up -d
 
 Cela lancera les conteneurs Docker pour votre application, y compris la base de données MySQL, Prometheus pour la surveillance des métriques, et Grafana pour la visualisation des métriques.
 
-4. **Accéder à Grafana** :
+4. **Accéder à Prometheus** :
+
+De même, accédez à Prometheus depuis votre navigateur ou Postman en utilisant l'URL suivante :
+
+```
+http://localhost:9090
+```
+
+Prometheus est un système de surveillance et d'alerte open source, configuré pour collecter les métriques exposées par notre application Node.js.
+
+L'onglet Status est particulièrement important :
+
+- Targets : Sous cet onglet, vous trouverez les endpoints que Prometheus scrute pour collecter les métriques. Cette section vous permet de vérifier que les endpoints sont correctement configurés et actifs, assurant ainsi une collecte de données fiable et en continu.
+
+
+5. **Accéder à Grafana** :
 
 Dans votre navigateur ou bien avec Postman, accédez à Grafana en utilisant l'URL suivante :
 
@@ -36,12 +51,10 @@ http://localhost:3030
 
 Grafana est une plateforme open source de visualisation et d'analyse de données, configurée pour se connecter à Prometheus et afficher les métriques collectées.
 
-5. **Accéder à Prometheus** :
+Pour accéder à Grafana, utilisez le nom d'utilisateur admin et le mot de passe admin. Une fois connecté, vous serez dirigé vers la page d'accueil de Grafana. Deux onglets sont essentiels :
 
-De même, accédez à Prometheus depuis votre navigateur ou Postman en utilisant l'URL suivante :
+- Data Sources : Vous trouverez ici les données récupérées par Prometheus. La source de données a été configurée pour être intégrée automatiquement dans ce projet.
 
-```
-http://localhost:9090
-```
+- Dashboards : Cet onglet vous permet de visualiser les données collectées. J'ai préconfiguré un tableau de bord nommé Docker Containers. Il sert d'exemple de ce que vous pouvez réaliser avec Grafana et vous permet de visualiser immédiatement les métriques des conteneurs de l'application.
 
-Prometheus est un système de surveillance et d'alerte open source, configuré pour collecter les métriques exposées par notre application Node.js.
+
