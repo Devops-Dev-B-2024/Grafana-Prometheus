@@ -1,4 +1,5 @@
 # Projet CineCritique avec Grafana
+Réalisé par Lucas Guerra
 
 Ce projet est une API de critiques de films développée avec Node.js et Docker, intégrant des outils de surveillance tels que Prometheus et Grafana pour la collecte et la visualisation des métriques.
 
@@ -69,4 +70,5 @@ Une fois connecté, vous serez dirigé vers la page d'accueil de Grafana. Deux o
 
 ![image](https://github.com/Dayql/FormulaireAPI/assets/94311330/24863b84-44db-4a76-8c9b-10d14159191b)
 
-
+## Contact
+Pour plus d'informations, contactez lucas.guerra@ynov.com.
